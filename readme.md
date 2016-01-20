@@ -10,6 +10,10 @@ All other configuration is given in the `package.json`.
 
 # Development
 
+## Code Style
+
+All code follows the styling rules laid out in `contributing.md`.
+
 ## Javascript
 
 Code is written using the ES2015 standard and JSX within React components. This is transpiled using Babel and packaged for use in the browser using Webpack.

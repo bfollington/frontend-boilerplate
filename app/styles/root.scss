@@ -1,7 +1,11 @@
 @charset 'utf-8';
 
+$heading-color: red;
+
 h1, h2, h3 {
-  color: blue; }
+    color: $heading-color;
+}
 
 body {
-  width: 100%; }
+    width: 100%;
+}

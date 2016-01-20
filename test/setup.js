@@ -33,6 +33,7 @@ function setupFakeDOM() {
     global.sinon = require('sinon');
     global.chai = require('chai');
     global.chai.use(require('skin-deep/chai'));
+    global.chai.use(require('sinon-chai'));
     global.expect = global.chai.expect;
 
     global.shallowRender = require('skin-deep').shallowRender;

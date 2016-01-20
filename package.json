@@ -4,26 +4,20 @@
   "description": "",
   "main": "",
   "scripts": {
-
     "single-test": "./node_modules/.bin/mocha --compilers js:babel-register --require ./test/setup.js",
-
     "test": "./node_modules/.bin/mocha --compilers js:babel-register --require ./test/setup.js ./test/*.js ./test/**/*.js",
     "watch-test": "./node_modules/.bin/mocha --compilers js:babel-register --require ./test/setup.js ./test/*.js ./test/**/*.js --watch",
     "cover": "./node_modules/.bin/babel-node ./node_modules/isparta/bin/isparta cover --include \"**/*.js\" --include \"**/*.jsx\" --report text --report html ./node_modules/mocha/bin/_mocha -- --reporter dot --require ./test/setup.js ./test/*.js ./test/**/*.js",
-
     "build-css": "./node_modules/.bin/node-sass ./app/styles -o ./dist",
     "watch-css": "./node_modules/.bin/node-sass ./app/root.scss --watch ./dist/app.css",
-    "lint-css": "./node_modules/.bin/sass-lint './app/styles/**/*.scss' -v",
-
+    "lint-css": "./node_modules/.bin/sass-lint './app/styles/**/*.scss' -c sass-lint.yml -v",
     "build-js": "./node_modules/.bin/webpack",
     "watch-js": "./node_modules/.bin/webpack-dev-server --hot --inline",
     "lint-js": "./node_modules/.bin/eslint './app/**/*.js'",
-
     "watch": "npm run watch-css & npm run watch-js",
     "build": "npm run build-css && npm run build-js",
-    "lint" : "npm run lint-css && npm run lint-js",
+    "lint": "npm run lint-css && npm run lint-js",
     "start": "npm run watch",
-
     "pretest": "npm run lint",
     "prebuild": "npm run test",
     "postbuild": "npm run cover"
@@ -63,6 +57,7 @@
     "rewire": "^2.5.1",
     "sass-lint": "^1.4.0",
     "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0",
     "skin-deep": "^0.13.2",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
