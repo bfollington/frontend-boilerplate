@@ -26,10 +26,10 @@ export function twoGrid(contents) {
 
     return (
         <div>
-            { rows.map( row => {
+            { rows.map( (row, i) => {
                 return (
-                    <div className='row'>
-                        { row.map( item => <div className="col-xs-6">{item}</div> ) }
+                    <div key={i} className='row'>
+                        { row.map( (item, i) => <div key={i} className="col-xs-6">{item}</div> ) }
                     </div>
                 );
             } ) }
