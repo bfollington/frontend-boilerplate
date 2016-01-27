@@ -9,7 +9,7 @@
     "watch-test": "./node_modules/.bin/mocha --compilers js:babel-register --require ./test/setup.js ./test/*.js ./test/**/*.js --watch",
     "cover": "./node_modules/.bin/babel-node ./node_modules/isparta/bin/isparta cover --include \"**/*.js\" --include \"**/*.jsx\" --report text --report html ./node_modules/mocha/bin/_mocha -- --reporter dot --require ./test/setup.js ./test/*.js ./test/**/*.js",
     "build-css": "./node_modules/.bin/node-sass ./app/styles -o ./dist",
-    "watch-css": "./node_modules/.bin/node-sass ./app/root.scss --watch ./dist/app.css",
+    "watch-css": "./node_modules/.bin/node-sass ./app/styles --watch ./dist/app.css",
     "lint-css": "./node_modules/.bin/sass-lint './app/styles/**/*.scss' -c sass-lint.yml -v",
     "build-js": "./node_modules/.bin/webpack",
     "watch-js": "./node_modules/.bin/webpack-dev-server --hot --inline",
@@ -18,8 +18,7 @@
     "build": "npm run build-css && npm run build-js",
     "lint": "npm run lint-css && npm run lint-js",
     "start": "npm run watch",
-    "pretest": "npm run lint",
-    "prebuild": "npm run test",
+    "prebuild": "npm run lint && npm run test",
     "postbuild": "npm run cover"
   },
   "author": "",

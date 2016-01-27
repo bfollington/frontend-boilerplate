@@ -3,6 +3,10 @@
 import React from 'react';
 import { something } from './TestModule'; // Only import what is needed, until more than 5 things are imported.
 import SubComponent from './SubComponent';
+import Editable from './Editable';
+
+import Layout from "./Layout";
+import Content from "./Content";
 
 export default class TestComponent extends React.Component {
     constructor(props) {
@@ -12,13 +16,21 @@ export default class TestComponent extends React.Component {
         // Any information that will require a rerender belongs in state
         // API connectors, utility classes etc. can be stored on the object itself
         this.state = {
-            list: [1, 2, 3, 4]
+            list: [1, 2, 3, 4],
+            editableHtml: '<p>Hello</p>',
+            editing: true
         };
     }
 
     onToggle() {
         this.setState({
             test: !this.state.test
+        });
+    }
+
+    onTextboxChange(content) {
+        this.setState({
+            editableHtml: content
         });
     }
 
@@ -39,23 +51,23 @@ export default class TestComponent extends React.Component {
         // React returns should be set out as below for readability.
         return (
             <div>
-                {/* This is the syntax for a JSX comment */}
+            {/* This is the syntax for a JSX comment */}
                 <h1>React Test</h1>
                 <button onClick={this.onToggle.bind(this)}>
-                    {/* The ternary operator is often used in JSX for basic if-else logic. It should only be
-                        used when it does not degrade readability. */}
-                    Toggle Me ({this.state.test ? 'True' : 'False'})
+                {/* The ternary operator is often used in JSX for basic if-else logic. It should only be
+                used when it does not degrade readability. */}
+                Toggle Me ({this.state.test ? 'True' : 'False'})
                 </button>
 
                 {/* This is still acceptable, but does require React specific knowledge that null -> no render */}
                 { this.state.test ? <a href="#">A Link</a> : null }
 
                 {/* This is pushing the limit, if either sub expression is over several lines
-                    then this is not permitted. */}
+                then this is not permitted. */}
                 {
-                    this.state.test ?
-                        this.state.list.map(el => <li key={el}>{el}</li>) :
-                        this.state.list.map(el => <li key={el}>False {el}</li>)
+                this.state.test ?
+                this.state.list.map(el => <li key={el}>{el}</li>) :
+                this.state.list.map(el => <li key={el}>False {el}</li>)
                 }
 
                 {/* Preferable syntax for a "switch" style logic block. */}
@@ -63,7 +75,7 @@ export default class TestComponent extends React.Component {
 
                 {/* This is a for-each in JSX, any more advanced templating should be accomplished using methods */}
                 {/* Note: a unique key must be provided for any iteration,
-                    omitting it or duplicate keys can cause unexpected behaviour */}
+                omitting it or duplicate keys can cause unexpected behaviour */}
                 {
                     this.state.list.map((entry) => {
                         return <li key={entry}>{entry}</li>;
@@ -81,6 +93,12 @@ export default class TestComponent extends React.Component {
                     anotherProp={1}
                     moreProps={2}
                     something={123}
+                />
+
+                <Editable
+                    content={this.state.editableHtml}
+                    editable={this.state.editing}
+                    onChange={this.onTextboxChange.bind(this)}
                 />
             </div>
         );
