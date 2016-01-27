@@ -95,6 +95,15 @@ export default class TestComponent extends React.Component {
                     something={123}
                 />
 
+                <Layout
+                    contents={[
+                        <Content />,
+                        <Content />,
+                        <Content />
+                    ]}
+                    layout="twoGrid"
+                />
+
                 <Editable
                     content={this.state.editableHtml}
                     editable={this.state.editing}
