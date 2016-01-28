@@ -1,7 +1,7 @@
 // this handles setup of the fake DOM when the tests are
 // run in Node
 
-import jsdom from 'jsdom';
+// import jsdom from 'jsdom';
 
 const FAKE_DOM_HTML = `
 <html>
@@ -26,9 +26,9 @@ function setupFakeDOM() {
     //
     // If you want to do any async setup in your tests, use
     // the before() and beforeEach() hooks.
-    global.document = jsdom.jsdom(FAKE_DOM_HTML);
-    global.window = document.defaultView;
-    global.navigator = window.navigator;
+    // global.document = jsdom.jsdom(FAKE_DOM_HTML);
+    // global.window = document.defaultView;
+    // global.navigator = window.navigator;
 
     global.sinon = require('sinon');
     global.chai = require('chai');

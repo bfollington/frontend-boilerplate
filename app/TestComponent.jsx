@@ -3,10 +3,8 @@
 import React from 'react';
 import { something } from './TestModule'; // Only import what is needed, until more than 5 things are imported.
 import SubComponent from './SubComponent';
-import Editable from './Editable';
 
-import Layout from "./Layout";
-import Content from "./Content";
+import Layout from './editor/Layout';
 
 export default class TestComponent extends React.Component {
     constructor(props) {
@@ -17,8 +15,13 @@ export default class TestComponent extends React.Component {
         // API connectors, utility classes etc. can be stored on the object itself
         this.state = {
             list: [1, 2, 3, 4],
-            editableHtml: '<p>Hello</p>',
-            editing: true
+            contents: [
+                '<img src="https://www.bhmpics.com/walls/dog_with_reading_glasses-normal.jpg" width="64px" />',
+                'Hello',
+                ':)'
+            ],
+            editing: true,
+            test: false
         };
     }
 
@@ -31,6 +34,15 @@ export default class TestComponent extends React.Component {
     onTextboxChange(content) {
         this.setState({
             editableHtml: content
+        });
+    }
+
+    onContentUpdated(index, content) {
+        const contents = this.state.contents.slice();
+        contents[index] = content;
+
+        this.setState({
+            contents
         });
     }
 
@@ -53,6 +65,16 @@ export default class TestComponent extends React.Component {
             <div>
             {/* This is the syntax for a JSX comment */}
                 <h1>React Test</h1>
+
+                <div className="container-fluid">
+                    <Layout
+                        contents={this.state.contents}
+                        editable={this.state.editing}
+                        onContentUpdated={this.onContentUpdated.bind(this)}
+                        layout={this.state.test ? 'twoGrid' : 'linear'}
+                    />
+                </div>
+
                 <button onClick={this.onToggle.bind(this)}>
                 {/* The ternary operator is often used in JSX for basic if-else logic. It should only be
                 used when it does not degrade readability. */}
@@ -93,21 +115,6 @@ export default class TestComponent extends React.Component {
                     anotherProp={1}
                     moreProps={2}
                     something={123}
-                />
-
-                <Layout
-                    contents={[
-                        <Content />,
-                        <Content />,
-                        <Content />
-                    ]}
-                    layout="twoGrid"
-                />
-
-                <Editable
-                    content={this.state.editableHtml}
-                    editable={this.state.editing}
-                    onChange={this.onTextboxChange.bind(this)}
                 />
             </div>
         );

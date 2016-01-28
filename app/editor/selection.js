@@ -11,7 +11,6 @@ export function saveSelection() {
 }
 
 export function restoreSelection(editor, selection) {
-    const isInFocus = true;
     editor.focus();
 
     if (selection !== null) {

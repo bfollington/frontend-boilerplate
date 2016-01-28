@@ -1,12 +1,17 @@
 {
     "root": true,
     "extends": "airbnb/base",
+    "plugins": [
+        "react"
+    ],
     "rules": {
         "indent": [2, 4],
         "comma-dangle": 0,
         "padded-blocks": 0,
         "no-unused-vars": 1,
         "max-len": [2, 120],
-        "no-console": 0
+        "no-console": 1,
+        "quotes": 1,
+        "space-in-parens": 0
     }
 }

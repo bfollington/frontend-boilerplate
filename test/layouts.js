@@ -1,4 +1,4 @@
-import { groupIntoSets } from '../app/layouts';
+import { groupIntoSets } from '../app/editor/layouts';
 
 describe('layouts', () => {
 
@@ -29,7 +29,6 @@ describe('layouts', () => {
         const arr = [1, 2, 3];
 
         const result = groupIntoSets(arr, 1);
-        console.log(result);
 
         expect(result.length).to.equal(3);
     });

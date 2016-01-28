@@ -1,6 +1,6 @@
 module.exports = {
     context: __dirname + "/app",
-    devtool: 'source-map',
+    devtool: 'source-map', // Enable sourcemaps
     entry: {
         javascript: "./app.js",
         html: "./index.html",
@@ -13,7 +13,6 @@ module.exports = {
 
     module: {
         loaders: [
-
             {
                 include: /\.(js|jsx)$/,
                 loaders: ["react-hot", "babel"],

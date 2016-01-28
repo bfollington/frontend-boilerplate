@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { defaultConfig } from './textboxio/config';
+import { defaultConfig } from '../textboxio/config';
 
 /**
  * Textboxio Wrapper Component. HTML passed to this component can be managed using the textboxio editor.
  */
-export default class Editable extends React.Component {
+export default class Textbox extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -72,18 +72,17 @@ export default class Editable extends React.Component {
 
     render() {
         return (
-            <div dangerouslySetInnerHTML={ this.generateMarkup() }>
-            </div>
+            <div dangerouslySetInnerHTML={ this.generateMarkup() } />
         );
     }
 }
 
-Editable.defaultProps = {
+Textbox.defaultProps = {
     content: '',
     editable: true
 };
 
-Editable.propTypes = {
+Textbox.propTypes = {
     content: React.PropTypes.string,
     editable: React.PropTypes.bool
 };
