@@ -29,7 +29,8 @@
     "bootstrap": "^3.3.6",
     "concurrently": "^1.0.0",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "skin-deep": "^0.14.0"
   },
   "devDependencies": {
     "babel": "^6.3.26",
