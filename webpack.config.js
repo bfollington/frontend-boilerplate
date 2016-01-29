@@ -1,14 +1,16 @@
+var path = require("path");
+
 module.exports = {
-    context: __dirname + "/app",
+    context: path.join(__dirname, "app"),
     devtool: 'source-map', // Enable sourcemaps
     entry: {
-        javascript: "./app.js",
-        html: "./index.html",
+        javascript: path.join(__dirname, "app/app.js"),
+        html: path.join(__dirname, "app/index.html"),
     },
 
     output: {
         filename: "app.js",
-        path: __dirname + "/dist",
+        path: path.join(__dirname, "dist"),
     },
 
     module: {
