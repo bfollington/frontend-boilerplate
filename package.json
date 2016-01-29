@@ -14,7 +14,7 @@
     "watch-js": "webpack-dev-server --hot --inline",
     "lint-js": "eslint './app/**/*.js'",
     "watch": "concurrent \"npm run watch-js\" \"npm run watch-css\"",
-    "build": "npm run build-css && npm run build-js",
+    "build": "concurrent \"npm run build-css\" \"npm run build-js\"",
     "lint": "npm run lint-css && npm run lint-js",
     "start": "npm run watch",
     "prebuild": "npm run lint && npm run test",
