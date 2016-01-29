@@ -55,7 +55,7 @@
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
     "skin-deep": "^0.13.2",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
   }
 }
