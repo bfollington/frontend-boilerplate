@@ -4,8 +4,8 @@
   "description": "A workflow test project for frontend development",
   "scripts": {
     "single-test": "mocha --compilers js:babel-register --require ./test/setup.js",
-    "test": "mocha --compilers js:babel-register --require ./test/setup.js ./test/*.js ./test/**/*.js",
-    "ci-test": "mocha --compilers js:babel-register --reporter mocha-teamcity-reporter --require ./test/setup.js ./test/*.js ./test/**/*.js",
+    "local-test": "mocha --compilers js:babel-register --require ./test/setup.js ./test/*.js ./test/**/*.js",
+    "test": "mocha --compilers js:babel-register --reporter mocha-teamcity-reporter --require ./test/setup.js ./test/*.js ./test/**/*.js",
     "watch-test": "mocha --compilers js:babel-register --require ./test/setup.js ./test/*.js ./test/**/*.js --watch",
     "cover": "babel-node ./node_modules/isparta/bin/isparta cover --include \"**/*.js\" --include \"**/*.jsx\" --report text --report html ./node_modules/mocha/bin/_mocha -- --reporter dot --require ./test/setup.js ./test/*.js ./test/**/*.js",
     "build-css": "node-sass ./app/styles -o ./dist",
