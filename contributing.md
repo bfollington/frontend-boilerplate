@@ -24,7 +24,7 @@ Whenever possible, modern Javascript concepts should be used over traditional pa
 
 ##### Prefer Immutability
 
-Immutability, while occasionally hard to enforce, has many benefits when dealing with functional programming concepts. Generally, a method should **never** mutate its parameters and prefer to return a copy.
+Immutability, while occasionally hard to enforce, has many benefits when dealing with functional programming concepts. Generally, a method should not mutate its parameters and prefer to return a copy.
 
 ```
 
